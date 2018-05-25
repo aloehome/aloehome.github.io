@@ -12,17 +12,17 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="百度地图API自定义地图       html,body{margin:0;padding:0;}     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}     .iw_poi_content {fon">
+  <meta name="description" content="获取帮助 通过下面的方式向我们寻求帮助。          名字                邮箱                信息           发送   取消">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact">
 <meta property="og:url" content="https://aloehome.github.io/contact/index.html">
 <meta property="og:site_name" content="荟萃园">
-<meta property="og:description" content="百度地图API自定义地图       html,body{margin:0;padding:0;}     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}     .iw_poi_content {fon">
+<meta property="og:description" content="获取帮助 通过下面的方式向我们寻求帮助。          名字                邮箱                信息           发送   取消">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-23T16:27:38.726Z">
+<meta property="og:updated_time" content="2018-05-25T01:43:01.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Contact">
-<meta name="twitter:description" content="百度地图API自定义地图       html,body{margin:0;padding:0;}     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}     .iw_poi_content {fon">
+<meta name="twitter:description" content="获取帮助 通过下面的方式向我们寻求帮助。          名字                邮箱                信息           发送   取消">
   
     <link rel="alternative" href="/atom.xml" title="荟萃园" type="application/atom+xml">
   
@@ -128,126 +128,9 @@
 	    <div id="map" class="gmaps margin-bottom-0" style="height:0px;"></div>
 	  </div>
 	  <div class="col-md-9 col-sm-9">
-	    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具">
-<meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图">
-<title>百度地图API自定义地图</title>
-<!--引用百度地图API-->
-<style type="text/css">
-    html,body{margin:0;padding:0;}
-    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
-    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
-</style>
-<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
-</head>
-
-<body>
-  <!--百度地图容器-->
-  <div style="width:697px;height:400px;border:#ccc solid 1px;" id="dituContent"></div>
-</body>
-<script type="text/javascript">
-    //创建和初始化地图函数：
-    function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addMarker();//向地图中添加marker
-    }
-    
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(103.0085,29.984772);//定义一个中心点坐标
-        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
-    }
-    
-    //地图事件设置函数：
-    function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-    
-    //地图控件添加函数：
-    function addMapControl(){
-        //向地图中添加缩放控件
-	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_RIGHT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-	map.addControl(ctrl_nav);
-        //向地图中添加缩略图控件
-	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-	map.addControl(ctrl_ove);
-        //向地图中添加比例尺控件
-	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-	map.addControl(ctrl_sca);
-    }
-    
-    //标注点数组
-    var markerArr = [{title:"AloeHome",content:"荟萃园",point:"103.008603|29.984616",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ];
-    //创建marker
-    function addMarker(){
-        for(var i=0;i<markerArr.length;i++){
-            var json = markerArr[i];
-            var p0 = json.point.split("|")[0];
-            var p1 = json.point.split("|")[1];
-            var point = new BMap.Point(p0,p1);
-			var iconImg = createIcon(json.icon);
-            var marker = new BMap.Marker(point,{icon:iconImg});
-			var iw = createInfoWindow(i);
-			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-			marker.setLabel(label);
-            map.addOverlay(marker);
-            label.setStyle({
-                        borderColor:"#808080",
-                        color:"#333",
-                        cursor:"pointer"
-            });
-			
-			(function(){
-				var index = i;
-				var _iw = createInfoWindow(i);
-				var _marker = marker;
-				_marker.addEventListener("click",function(){
-				    this.openInfoWindow(_iw);
-			    });
-			    _iw.addEventListener("open",function(){
-				    _marker.getLabel().hide();
-			    })
-			    _iw.addEventListener("close",function(){
-				    _marker.getLabel().show();
-			    })
-				label.addEventListener("click",function(){
-				    _marker.openInfoWindow(_iw);
-			    })
-				if(!!json.isOpen){
-					label.hide();
-					_marker.openInfoWindow(_iw);
-				}
-			})()
-        }
-    }
-    //创建InfoWindow
-    function createInfoWindow(i){
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-        return iw;
-    }
-    //创建一个Icon
-    function createIcon(json){
-        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
-        return icon;
-    }
-    
-    initMap();//创建和初始化地图
-</script>
-</html>
-<h2>Let us help</h2>
-<p>Lorem ipsum sdolor sic amit, bolero carles.</p>
+	    
+<h2>获取帮助</h2>
+<p>通过下面的方式向我们寻求帮助。</p>
 <!-- BEGIN FORM-->
 <form action="#" role="form">
   <div class="form-group">
@@ -272,40 +155,31 @@
 	  <div class="col-md-3 col-sm-3 sidebar2">
 	    <h2>联系我们</h2>
 	    <address class="margin-bottom-40">
-	      140 Metropolitan Avenue<br>
-	      5th Floor<br>
-	      Brooklyn, NY 11249<br>
-	      Phone: 716-472-4484<br>
-	      Email: <a href="mailto:ptsteadman@gmail.com">ptsteadman@gmail.com</a><br>
-	      Skype: <a href="skype:ptsteadman">ptsteadman</a>
+	      中国四川省雅安市<br>
+	      雨城区<br>
+	      四川农业大学<br>
+	      电话: XXX-XXXX-XXXX<br>
+	      邮箱: <a href="mailto:aloehome@126.com">aloehome@126.com</a><br>
+	      <!--QQ: <a href="skype:"></a>-->
 	    </address>
 	    <ul class="social-icons margin-bottom-40">
 	      
-	      <li><a href="https://github.com/ptsteadman"
+	      <li><a href="https://github.com/aloehome/aloehome.github.io"
 	      data-original-title="github" class="github"></a></li>
-	      
-	      <li><a href="https://twitter.com/ptsteadman"
-	      data-original-title="twitter" class="twitter"></a></li>
-	      
-	      <li><a href="https://www.facebook.com/ptsteadman"
-	      data-original-title="facebook" class="facebook"></a></li>
 	      
 	      <li><a href="/atom.xml"
 	      data-original-title="rss" class="rss"></a></li>
-	      
-	      <li><a href="https://linkedin.com/in/ptsteadman"
-	      data-original-title="linkedin" class="linkedin"></a></li>
 	      
 	      <li><a href="http://stackoverflow.com/users/2480493/patrick-steadman"
 	      data-original-title="stackoverflow" class="stackoverflow"></a></li>
 	      
 	    </ul>  
 	    <h2 class="padding-top-30">关于我们</h2>
-	    <p>Sediam nonummy nibh euismod tation ullamcorper suscipit</p>
+	    <p>我们的创业团队拥有技术、经济、管理等多方面的专业人才，为企业的可持续发展奠定了基础。</p>
 	    <ul class="list-unstyled">
-	      <li><i class="fa fa-check"></i> Officia deserunt molliti</li>
-	      <li><i class="fa fa-check"></i> Consectetur adipiscing </li>
-	      <li><i class="fa fa-check"></i> Deserunt fpicia</li>
+	      <li><i class="fa fa-check"></i> 技术优势</li>
+	      <li><i class="fa fa-check"></i> 经济优势</li>
+	      <li><i class="fa fa-check"></i> 管理优势</li>
 	    </ul>        
 	  </div>
 	</div>
@@ -323,7 +197,7 @@
           <!-- BEGIN BOTTOM ABOUT BLOCK -->
           <div class="col-md-4 col-sm-6 pre-footer-col">
             <h2>关于我们</h2>
-            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+            <p>我们的创业团队是由不同年龄的本科生组织的高素质团队，在人才梯队上具有接力优势。<br><br>我们将一直遵循团队的原则：低盈利运行，高质量生产，以达到技术开拓、自我创新的目的。</p>
           </div>
           <!-- END BOTTOM ABOUT BLOCK -->
 
@@ -331,28 +205,15 @@
           <div class="col-md-4 col-sm-6 pre-footer-col">
             <h2>联系我们</h2>
             <address class="margin-bottom-40">
-              140 Metropolitan Avenue<br>
-              5th Floor<br>
-              Brooklyn, NY 11249<br>
-              Phone: 716-472-4484<br>
-              Email: <a href="mailto:ptsteadman@gmail.com">ptsteadman@gmail.com</a><br>
+              中国四川省雅安市<br>
+              雨城区<br>
+              四川农业大学<br>
+              电话: XXX-XXXX-XXXX<br>
+              邮箱: <a href="mailto:aloehome@126.com">aloehome@126.com</a><br>
             </address>
           </div>
           <!-- END BOTTOM CONTACTS -->
 
-	
-          <!-- BEGIN TWITTER BLOCK --> 
-          <div class="col-md-4 col-sm-6 pre-footer-col">
-
-	  <a data-tweet-limit="1" class="twitter-timeline"
-	  href="https://twitter.com/computerlab_"
-	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
-
-	  <script>!function(d,s,id){var
-	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-          </div>
-          <!-- END TWITTER BLOCK -->
 	
         </div>
       </div>
